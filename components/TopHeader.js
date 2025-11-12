@@ -1,17 +1,56 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 
 const TopHeader = () => {
     const [searchOpen, setSearchOpen] = useState(false)
+    const [isSticky, setIsSticky] = useState(false)
+    const [showHeader, setShowHeader] = useState(true)
+    const lastScrollY = useRef(0)
+    const ticking = useRef(false)
+    const stickyRef = useRef(isSticky)
+    const showRef = useRef(showHeader)
 
-    const handleSearchClick = () => {
+    const handleSearchClick = useCallback(() => {
         setSearchOpen(true)
-    }
+    }, [])
 
-    const handleSearchClose = () => {
+    const handleSearchClose = useCallback(() => {
         setSearchOpen(false)
-    }
+    }, [])
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY || window.pageYOffset
+
+            if (!ticking.current) {
+                window.requestAnimationFrame(() => {
+                    // compute new states
+                    const newSticky = currentScrollY > 80
+                    const newShow = !(currentScrollY > lastScrollY.current && currentScrollY > 120)
+
+                    // update sticky only when value changes (avoid re-renders)
+                    if (newSticky !== stickyRef.current) {
+                        stickyRef.current = newSticky
+                        setIsSticky(newSticky)
+                    }
+
+                    // update visibility only when value changes
+                    if (newShow !== showRef.current) {
+                        showRef.current = newShow
+                        setShowHeader(newShow)
+                    }
+
+                    lastScrollY.current = currentScrollY <= 0 ? 0 : currentScrollY
+                    ticking.current = false
+                })
+                ticking.current = true
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
         <>
@@ -38,7 +77,7 @@ const TopHeader = () => {
             {/* <!-- Header Start --> */}
             <div className="header-main-wrapper header-style1 mt-2">
                 
-                <div className="header-sticky-wrapper">
+                <div className={`header-sticky-wrapper ${isSticky ? 'is-sticky' : ''} ${showHeader ? 'is-visible' : 'is-hidden'}`}>
                     <div className="hs-left-logo">
                         <a href="/"><img src="/images/teliram-logo.webp" width={"100"} height={"50"} alt="logo" className="img-fluid" /></a>
                     </div>
