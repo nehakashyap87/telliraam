@@ -803,6 +803,88 @@ label.e-checkbox {
 }
 
 /********************************************************
+    Banner CSS - Full Bleed Image Slider
+********************************************************/
+.e-new-banner-wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.new-swipe-container {
+    width: 100%;
+    height: 100%;
+}
+
+.new-swipe-container .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.bnr-img {
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    overflow: hidden;
+}
+
+.bnr-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Performance hints: reduce repaints during slide transitions */
+.bnr-img {
+    will-change: transform;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bnr-image {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+.e-new-banner-wrapper .swiper-slide {
+    will-change: transform, opacity;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* Pagination styling */
+.e-new-banner-wrapper .swiper-pagination {
+    bottom: 20px;
+    z-index: 10;
+}
+
+.e-new-banner-wrapper .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.6);
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+}
+
+.e-new-banner-wrapper .swiper-pagination-bullet-active {
+    background: var(--primary-color);
+    width: 14px;
+    height: 14px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .bnr-img {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .bnr-img {
+        height: 50vh;
+    }
+}
+
+/********************************************************
     5. sidebar cartbox CSS Start
 ********************************************************/
 .sb-cartbox {
