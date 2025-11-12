@@ -18,11 +18,11 @@ const TopHeader = () => {
             {/* <!-- Search Box --> */}
             <div className={searchOpen ? "search-main-wrap show" : "search-main-wrap"}>
                 <div className="search-inner">
-                    <p  className="c-search-close" onClick={handleSearchClose}>
+                    <span  className="c-search-close" onClick={handleSearchClose}>
                         <svg viewBox="0 0 413.348 413.348" xmlns="http://www.w3.org/2000/svg">
                             <path d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z"></path>
                         </svg>
-                    </p>
+                    </span>
                     <div className="search-box">
                         <form>
                             <input type="text" placeholder="Search here..." />
@@ -37,26 +37,11 @@ const TopHeader = () => {
             </div>
             {/* <!-- Header Start --> */}
             <div className="header-main-wrapper header-style1 mt-2">
-                {/* <div className="header-top-wrapper">
-                    <div className="hs-left-logo">
-                        <a href="index.html"><img src="/images/teliram-logo.webp" width={"150"} height={"50"} alt="logo" className="img-fluid" /></a>
-                    </div>
-                    <div className="ht-right">
-                        <div className="ht-right_info">
-                            <ul className="ht-info-list">
-
-                                <li><a href="my_account.html"><i className="fa fa-user-circle" aria-hidden="true"></i>My Account</a>
-                                </li>
-                                <li>
-                                    <a href="/" data-bs-toggle="modal" data-bs-target="#register"><i className="fa fa-sign-in" aria-hidden="true"></i>Register </a>
-                                    or
-                                    <a href="/" data-bs-toggle="modal" data-bs-target="#login">Sign in</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> */}
+                
                 <div className="header-sticky-wrapper">
+                    <div className="hs-left-logo">
+                        <a href="/"><img src="/images/teliram-logo.webp" width={"100"} height={"50"} alt="logo" className="img-fluid" /></a>
+                    </div>
                     <div className="hs-medium custom-scroll">
                         <div className="nav-items main-menu-wraper">
                             <ul className="menu-list d-xl-flex">
@@ -69,11 +54,6 @@ const TopHeader = () => {
                                         <span></span>
                                         <span></span>
                                     </p>
-                                </li>
-                                <li>
-                                    <div className="hs-left-logo">
-                                        <a href="/"><img src="/images/teliram-logo.webp" width={"100"} height={"50"} alt="logo" className="img-fluid" /></a>
-                                    </div>
                                 </li>
                                 <li className="position-relative">
                                     <a href="index.html">Home</a>
@@ -90,7 +70,6 @@ const TopHeader = () => {
                                 <li className="position-relative">
                                     <a href="index.html">Contact US</a>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
@@ -108,8 +87,8 @@ const TopHeader = () => {
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                 <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="#ffffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                                 <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="#ffffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M23 20.9999V18.9999C22.9993 18.1136 22.7044 17.2527 22.1614 16.5522C21.6184 15.8517 20.8581 15.3515 20 15.1299" stroke="#FCB300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                                                <path d="M16 3.12988C16.8604 3.35018 17.623 3.85058 18.1676 4.55219C18.7122 5.2538 19.0078 6.11671 19.0078 7.00488C19.0078 7.89305 18.7122 8.75596 18.1676 9.45757C17.623 10.1592 16.8604 10.6596 16 10.8799" stroke="#FCB300" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M23 20.9999V18.9999C22.9993 18.1136 22.7044 17.2527 22.1614 16.5522C21.6184 15.8517 20.8581 15.3515 20 15.1299" stroke="#cdc149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M16 3.12988C16.8604 3.35018 17.623 3.85058 18.1676 4.55219C18.7122 5.2538 19.0078 6.11671 19.0078 7.00488C19.0078 7.89305 18.7122 8.75596 18.1676 9.45757C17.623 10.1592 16.8604 10.6596 16 10.8799" stroke="#cdc149" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                             </svg>
                                             <span className="text-white">My Account</span>
 
