@@ -54,3 +54,6 @@ html,body {
 .bg-brand-3 { background-color: var(--brand-3) !important; }
 .bg-brand-4 { background-color: var(--brand-4) !important; }
 .bg-brand-5 { background-color: var(--brand-5) !important; }
+.hs-user-box {
+    margin-right: 20px;
+}
